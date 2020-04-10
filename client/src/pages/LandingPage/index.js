@@ -7,10 +7,8 @@ export const CallBox = () => {
   useEffect(() => {
     API.searchTerms()
       .then(res => {
-        console.log(res);
         setBox(res);
-      })
-    // API.testFunc();
+      });
   })
 
   return (
