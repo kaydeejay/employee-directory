@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const Employee = require("../models/Employee");
 
 router.get("/", (req, res, next) => {
-  res.send("WELL I MUST SAY THIS IS PRETTY COOL.");
+  Employee.find({})
+    .then(dbRes => {
+      res.json(dbRes);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 module.exports = router;
