@@ -1,24 +1,27 @@
-import React/*, { useState, useEffect }*/ from 'react'
-// import API from '../../utils/API';
-import Container from '../../components/Container';
+import React, { useState, useEffect } from 'react';
+import EmployeeList from '../../components/EmployeeList';
+import Navbar from '../../components/Navbar';
+import API from '../../utils/API';
+import EmployeeListContext from '../../utils/EmployeeListContext';
 
 export const Page = () => {
+  const [employeeList, setEmployeeList] = useState({
+    employees: []
+  });
 
-  // possibly need to run all of this when the employee list
-  // mounts, instead of the container.
-
-  // const [employeeList, setEmployeeList] = useState();
-
-  // useEffect(() => {
-  //   API.findAll()
-  //     .then(res => {
-  //       console.log(JSON.parse(res));
-  //     });
-  // }, []);
+  useEffect(() => {
+    API.findAll()
+      .then(dbRes => {
+        setEmployeeList(JSON.parse(dbRes));
+      });
+  }, []);
 
   return (
-    <div>
-      <Container />
+    <div className="wrapper">
+      <EmployeeListContext.Provider value={employeeList}>
+        <Navbar />
+        <EmployeeList />
+      </EmployeeListContext.Provider>
     </div>
   )
 }
