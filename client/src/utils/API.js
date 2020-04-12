@@ -1,12 +1,8 @@
 export default {
-  searchTerms: () => {
+  findAll: () => {
     return new Promise((res, rej) => {
-      fetch("http://localhost:9000/testAPI")
+      fetch("http://localhost:9000/testapi")
         .then(result => res(result.text()));
     });
   },
-
-  testFunc: function () {
-    console.log("test");
-  }
 }

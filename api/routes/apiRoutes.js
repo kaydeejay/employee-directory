@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Employee = require("../models/Employee");
 
+// http://localhost:9000/testapi
 router.get("/", (req, res, next) => {
   Employee.find({})
     .then(dbRes => {
+      console.log(dbRes);
       res.json(dbRes);
     })
     .catch(err => {

@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const testAPIRouter = require('./routes/testAPI');
+const testAPIRouter = require('./routes/apiRoutes');
 
 const app = express();
 
@@ -25,7 +25,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/employeeRoster"
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 
 module.exports = app;

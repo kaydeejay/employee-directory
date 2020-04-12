@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import API from '../../utils/API';
+import Container from '../../components/Container';
 
 export const CallBox = () => {
   const [box, setBox] = useState();
 
   useEffect(() => {
-    API.searchTerms()
+    API.findAll()
       .then(res => {
         setBox(res);
       });
@@ -13,6 +14,7 @@ export const CallBox = () => {
 
   return (
     <div>
+      <Container />
       {box}
     </div>
   )
