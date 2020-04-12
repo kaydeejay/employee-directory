@@ -3,7 +3,10 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div>
-      Navbar
+      Employee Directory
+      <button>All Employees</button>
+      <button>Sort by First Name</button>
+      <button>Sort by Last Name</button>
     </div>
   )
 }

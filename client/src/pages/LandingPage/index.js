@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import API from '../../utils/API';
+import React/*, { useState, useEffect }*/ from 'react'
+// import API from '../../utils/API';
 import Container from '../../components/Container';
 
-export const CallBox = () => {
-  const [box, setBox] = useState();
+export const Page = () => {
 
-  useEffect(() => {
-    API.findAll()
-      .then(res => {
-        setBox(res);
-      });
-  })
+  // possibly need to run all of this when the employee list
+  // mounts, instead of the container.
+
+  // const [employeeList, setEmployeeList] = useState();
+
+  // useEffect(() => {
+  //   API.findAll()
+  //     .then(res => {
+  //       console.log(JSON.parse(res));
+  //     });
+  // }, []);
 
   return (
     <div>
       <Container />
-      {box}
     </div>
   )
 }
 
-export default CallBox;
+export default Page;

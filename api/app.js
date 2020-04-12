@@ -6,8 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const testAPIRouter = require('./routes/apiRoutes');
+const apiRouter = require('./routes/apiRoutes');
 
 const app = express();
 
@@ -25,6 +24,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/employeeRoster"
 });
 
 app.use('/', indexRouter);
-app.use('/testAPI', testAPIRouter);
+app.use('/api', apiRouter);
 
 module.exports = app;
